@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+</head>
+
+<body>
+    <!-- Write your code solution here, inside the reduce function -->
+    <!-- WARNING:
+        Don't make any changes outside the given function. (would fail test cases)
+        Write the required code and return the correct answer. -->
+    <script id='solution' defer>
+        function reduce(arr, reducer) {
+            // Write your solution here ========================
+            Array.prototype.myReduce = function ( func , init ) {
+                let curArr = this;
+                // let init = curArr[0];
+                for(let i=0;i<curArr.length-1;i++) {
+                    init = func ( init , curArr[ i + 1 ] )
+                }
+                return init;
+            }
+            let ret = arr.myReduce(reducer , arr[0]);
+            return ret;
+        }
+        arr = [2, 3, 4, 5]
+        reducer = (a,b)=>{ return a+b }
+
+        let x = reduce(arr, reducer)
+        console.log(x)
+    </script>
+</body>
+
+</html>

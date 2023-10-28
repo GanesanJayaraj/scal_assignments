@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+</head>
+
+<body>
+    <!-- Write your code solution here, inside the flattenObject function -->
+    <!-- WARNING:
+        Don't make any changes outside the given function. (would fail test cases)
+        Write the required code and return the correct answer. -->
+    <script id='solution' defer>
+        let str = "";
+        let newObj = {};
+        function flattenObject(ob) {
+            // Write your solution here ========================
+            // for(let obj in ob) {
+            //     if(typeof(ob[obj]) == "object") {
+            //         str += obj+"."
+            //         // console.log(str);
+            //         // newObj[str] = 
+            //         flattenObject(ob[obj]);
+            //     } else {
+            //         str += obj;
+            //         newObj[str] = ob[obj]
+            //         str = "";
+            //         // return ob[obj];
+            //         // console.log(str);
+            //         // str
+            //     }
+            //     // console.log(obj)
+            // }
+            // // console.log(newObj);
+            // return newObj
+
+            for (const key in ob) {
+                if( typeof(ob[key]) == "object") {
+                    console.log(key);
+                    flattenObject(ob[key]);
+                } else {
+                    console.log(key);
+                    console.log("====");
+                }
+            }
+        }
+        const obj = {
+            newObj: {
+                obj2: {
+                    obj5: {
+                        one: 1,
+                        asd: 1,
+                    },
+                },
+            },
+            obj3: {
+                obj4: {
+                    two: 2
+                },
+            },
+        };
+        console.log(obj);
+        console.log(flattenObject(obj));
+    </script>
+</body>
+
+</html>
