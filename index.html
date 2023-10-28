@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+</head>
+
+<body>
+    <!-- Write your code solution here, inside the applyPolyfill function -->
+    <!-- WARNING:
+        Don't make any changes outside the given function. (would fail test cases)
+        Write the required code and return the correct answer. -->
+    <script id='solution' defer>
+        // Online Javascript Editor for free
+        // Write, Edit and Run your Javascript code using JS Online Compiler
+
+        console.log("Welcome to Programiz!");
+
+        function greet(country) {
+
+            return 'Hello, ' + this.name + ' from ' + country;
+        }
+
+        const person = {
+            name: 'John',
+        };
+
+        // const result = applyPolyfill(greet, person, ['India']);
+        // console.log(result);
+
+        function applyPolyfill(fn, context, args) {
+            // Write your solution here ========================
+            let msg = ""
+            Function.prototype.myApply = function (obj, ...args) {
+                const func = this;
+                obj.func = func;
+                let x = obj.func(...args);
+                delete obj.func;
+                return (x)
+            }
+            return (fn.myApply(context, args));
+        }
+        const result = applyPolyfill(greet, person, ['India']);
+        console.log(result);
+    </script>
+</body>
+
+</html>

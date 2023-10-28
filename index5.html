@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+</head>
+
+<body>
+    <!-- Write your code solution here, inside the map function -->
+    <!-- WARNING:
+        Don't make any changes outside the given function. (would fail test cases)
+        Write the required code and return the correct answer. -->
+    <script id='solution' defer>
+        arr = [1, 2, 3, 4, 5];
+        callback = (num) => num * num;
+        function map(arr, callback) {
+            // Write your solution here ========================
+            Array.prototype.myMap = function (callback) {
+                let currArr = this;
+                currArr.callback = callback;
+                let mapArr = []
+                for(let i=0;i<currArr.length;i++) {
+                    // let x = currArr.callback(currArr[i])
+                    // console.log(x)
+                    mapArr.push(callback(currArr[i]))
+                }
+                // delete
+                return mapArr;
+            }
+            let fin = arr.myMap(callback);
+            // return fin
+            console.log(fin);
+        }
+        console.log(map(arr,callback))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+</head>
+
+<body>
+    <!-- Write your code solution here, inside the sortLibrary function -->
+    <!-- WARNING:
+        Don't make any changes outside the given function. (would fail test cases)
+        Write the required code and return the correct answer. -->
+    <script id='solution' defer>
+        function sortLibrary(library) {
+            // Write your solution here ========================
+            let sortLib = library.sort((a,b)=>{
+                let titleA = a.title;
+                let titleB = b.title;
+                let minTitleLen = Math.min( titleA.length , titleB.length);
+                for ( let i = 0 ; i < minTitleLen ; i++ ) {
+                    if(titleA[i].charCodeAt(0) == titleB[i].charCodeAt(0)) {
+                        
+                    } else if(titleA[i].charCodeAt(0) < titleB[i].charCodeAt(0)) {
+                        return titleA[i].charCodeAt(0) - titleB[i].charCodeAt(0);
+                    } else {
+                        return titleA[i].charCodeAt(0) - titleB[i].charCodeAt(0);
+                    }
+                }
+                // a.title - b.title
+            });
+            return sortLib
+        }
+        let lib = [
+            { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254 },
+            { author: 'Bill Gates', title: 'Tahe Road Ahead', libraryID: 1254 },
+            { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264 },
+            { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245 }
+        ];
+        console.log(lib);
+        console.log(sortLibrary(lib));
+    </script>
+</body>
+
+</html>
